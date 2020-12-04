@@ -9,4 +9,9 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split("\n")
   end
+
+  def load_map(path) do
+    File.read!(path)
+    |> String.split("\n")
+  end
 end
