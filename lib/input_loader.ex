@@ -14,4 +14,9 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split("\n")
   end
+
+  def load_passports(path) do
+    File.read!(path)
+    |> String.split("\n\n")
+  end
 end
