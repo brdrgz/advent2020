@@ -19,4 +19,9 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split("\n\n")
   end
+
+  def load_boarding_passes(path) do
+    File.read!(path)
+    |> String.split()
+  end
 end
