@@ -24,4 +24,9 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split()
   end
+
+  def load_customs_forms(path) do
+    File.read!(path)
+    |> String.split("\n\n")
+  end
 end
