@@ -29,4 +29,9 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split("\n\n")
   end
+
+  def load_luggage_rules(path) do
+    File.read!(path)
+    |> String.split("\n")
+  end
 end
