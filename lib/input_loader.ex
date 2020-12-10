@@ -39,4 +39,10 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split("\n")
   end
+
+  def load_xmas_data(path) do
+    File.read!(path)
+    |> String.split("\n")
+    |> Enum.map(&String.to_integer/1)
+  end
 end
