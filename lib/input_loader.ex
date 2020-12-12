@@ -51,4 +51,9 @@ defmodule InputLoader do
     |> String.split("\n")
     |> Enum.map(&String.to_integer/1)
   end
+
+  def load_seat_map(path) do
+    File.read!(path)
+    |> String.split("\n")
+  end
 end
