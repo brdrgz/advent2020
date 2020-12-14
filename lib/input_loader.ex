@@ -61,4 +61,23 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split("\n")
   end
+
+  def load_time_and_bus_schedule(path) do
+    {earliest, schedule} =
+      File.read!(path)
+      |> String.split("\n")
+      |> List.to_tuple()
+
+    {String.to_integer(earliest),
+     String.split(schedule, ",")
+     |> Enum.reject(&(&1 == "x"))
+     |> Enum.map(&String.to_integer/1)}
+  end
+
+  def load_bus_schedule(path) do
+    File.read!(path)
+    |> String.split("\n")
+    |> List.to_tuple()
+    |> elem(1)
+  end
 end
