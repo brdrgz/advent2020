@@ -80,4 +80,9 @@ defmodule InputLoader do
     |> List.to_tuple()
     |> elem(1)
   end
+
+  def load_initialization_program(path) do
+    File.read!(path)
+    |> String.split("\n")
+  end
 end
