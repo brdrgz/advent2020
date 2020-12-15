@@ -85,4 +85,9 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split("\n")
   end
+
+  def load_memory_game_numbers(path) do
+    File.read!(path)
+    |> String.split(",")
+  end
 end
