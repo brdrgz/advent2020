@@ -120,4 +120,9 @@ defmodule InputLoader do
         |> String.split("\n")
     }
   end
+
+  def load_pocket_dimension(path) do
+    File.read!(path)
+    |> String.split("\n")
+  end
 end
