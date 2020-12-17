@@ -90,4 +90,34 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split(",")
   end
+
+  def load_tickets_and_rules(path) do
+    [rules, yours, nearby] = File.read!(path) |> String.split("\n\n")
+
+    %{
+      "rules" =>
+        rules
+        |> String.split("\n")
+        |> Enum.reduce(%{}, fn rule, acc ->
+             rule
+             |> String.split(": ")
+             |> IO.inspect()
+             |> List.to_tuple()
+             |> List.wrap()
+             |> Map.new()
+             |> Map.merge(acc)
+        end),
+      "yours" =>
+        yours
+        |> String.trim()
+        |> String.split("your ticket:\n")
+        |> List.last(),
+      "nearby" =>
+        nearby
+        |> String.trim()
+        |> String.split("nearby tickets:\n")
+        |> List.last()
+        |> String.split("\n")
+    }
+  end
 end
