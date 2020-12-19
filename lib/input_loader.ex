@@ -125,4 +125,9 @@ defmodule InputLoader do
     File.read!(path)
     |> String.split("\n")
   end
+
+  def load_math_homework(path) do
+    File.read!(path)
+    |> String.split("\n")
+  end
 end
